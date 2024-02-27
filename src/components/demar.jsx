@@ -45,7 +45,7 @@ const callouts = [
 
 export default function DeMar() {
     return (
-        <div className="bg-gray-100 w-full">
+        <div className="select-none bg-gray-100 w-full">
             <div className="max-w-7x7 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3x6 py-16 sm:py-24 lg:max-w-none lg:py-5">
                     <h2 className="text-4xl font-bold text-gray-900 text-center">Sea Food</h2>

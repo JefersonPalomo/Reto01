@@ -3,9 +3,9 @@ import { Outlet } from "react-router-dom";
 export default function Root() {
     return (
         <>
-            <div className="flex">
+            <div className="select-none flex">
                 <div class="w-64 h-screen bg-gray-200 p-6">
-                    <h1 class="text-black text-2xl font-semibold">Main</h1>
+                    <h1 class="text-black text-2xl font-semibold"><a href="/">Main</a></h1>
                     <form id="search-form" className="mt-3" role="search">
                         <input
                             className="p-1"
