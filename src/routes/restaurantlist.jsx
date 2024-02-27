@@ -1,32 +1,5 @@
 import React, { useState } from 'react';
-
-const restaurantData = [
-    {
-        id: 1,
-        name: 'Seafood Paradise',
-        category: 'Comida de mar',
-    },
-    {
-        id: 2,
-        name: 'Asian Delight',
-        category: 'Comida asiatica',
-    },
-    {
-        id: 3,
-        name: 'Quick Bites',
-        category: 'Comida Rapida',
-    },
-    {
-        id: 4,
-        name: 'Italiano Express',
-        category: 'Comida Italiana',
-    },
-    {
-        id: 5,
-        name: 'Local Flavors',
-        category: 'Comida tipica',
-    },
-];
+import { Link } from 'react-router-dom';
 
 const RestaurantList = () => {
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -36,27 +9,37 @@ const RestaurantList = () => {
     };
 
     return (
-        <div className="container mx-auto mt-8">
-            <h2 className="text-3xl font-semibold mb-4">Explore Restaurants</h2>
-            <div className="flex space-x-4 mb-4">
-                <button 
-                    className={`px-4 py-2 rounded-lg ${selectedCategory === 'Comida de mar' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`} 
-                    onClick={() => handleCategoryChange('Comida de mar')}
-                >
-                    Comida de mar
-                </button>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {restaurantData
-                    .filter((restaurant) => !selectedCategory || restaurant.category === selectedCategory)
-                    .map((restaurant) => (
-                        <div key={restaurant.id} className="bg-white p-4 rounded-lg shadow-md">
-                            <h3 className="text-xl font-semibold mb-2">{restaurant.name}</h3>
-                            <p className="text-gray-600 mb-2">{restaurant.category}</p>
-                            {/* Otros detalles del restaurante */}
-                        </div>
-                    ))
-                }
+        <div className="container mx-auto mt-8 select-none ml-10">
+            <h2 className="text-3xl font-semibold mb-8">Explore Restaurants</h2>
+            <div className="space-x-4 mb-4 flex flex-row item-center">
+                <Link to="/comida-de-mar">
+                    <button
+                        className="h-30 mx-20  w-60 text-2xl px-4 py-2 rounded-lg bg-gray-300">
+                        Sea Food
+                    </button>
+                    <div className='flex items-center justify-center mt-14'>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-MTikXP7YDxdQpwhvBjmFPvXv2xt0mlmPjw&usqp=CAU" />
+                    </div>
+                </Link>
+
+                <Link to="/comida-rapida">
+                    <button
+                        className="h-30 mx-20 w-60 text-2xl px-4 py-2 rounded-lg bg-gray-300">
+                        Fast Food
+                    </button>
+                    <div className='flex items-center justify-center mt-8'>
+                        <img className='w-80' src="https://static.vecteezy.com/system/resources/previews/028/206/639/non_2x/a-logo-design-for-a-fast-food-restaurant-hamburger-soft-drink-and-fries-vector.jpg" />
+                    </div>
+                </Link>
+                <Link to="/asiatica">
+                    <button
+                        className="h-30 mx-20 w-60 text-2xl px-4 py-2 rounded-lg bg-gray-300">
+                        Asian Food
+                    </button>
+                    <div className='flex items-center justify-center mt-16'>
+                        <img className='w-80 h-60' src="https://www.conclusion.com.ar/wp-content/uploads/2017/04/thai2.jpg" />
+                    </div>
+                </Link>
             </div>
         </div>
     );
